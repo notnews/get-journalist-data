@@ -38,3 +38,7 @@ Both scripts take a csv with column carrying twitter usernames labeled 'twitter.
     <pre>python extract_presspass.py input_file </pre>
 
     Output CSV file will be saved as `presspass-out.csv`
+
+#### License
+
+Scripts are released under the [MIT License](https://github.com/soodoku/data-journalist/blob/master/License.md).

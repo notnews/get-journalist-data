@@ -1,6 +1,6 @@
 ### Get Data on Journalists
 
-Scrape data on journalists from Presspass or MuckRack. 
+Scrape data on journalists from [Presspass](ttp://www.presspass.me/) and [MuckRack](http://muckrack.com/). 
 
 Both scripts take a csv with column carrying twitter usernames labeled 'twitter.username'
 

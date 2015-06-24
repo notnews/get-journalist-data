@@ -2,7 +2,7 @@
 
 Scrape data on journalists from [Presspass](http://www.presspass.me/) and [MuckRack](http://muckrack.com/). 
 
-Both scripts take a csv with column carrying twitter usernames labeled 'twitter.username'
+Both scripts take a csv with column carrying twitter usernames labeled 'twitter.username.' (See [sample data](sample_input.csv).)
 
 #### Running the Scripts
 
@@ -41,4 +41,4 @@ Both scripts take a csv with column carrying twitter usernames labeled 'twitter.
 
 #### License
 
-Scripts are released under the [MIT License](https://github.com/soodoku/data-journalist/blob/master/License.md).
+Scripts are released under the [MIT License](License.md).

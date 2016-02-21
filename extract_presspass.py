@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: %s <input file>" % (__file__))
+        print("Usage: {0!s} <input file>".format((__file__)))
         sys.exit()
 
     f = open(sys.argv[1])
@@ -25,12 +25,12 @@ if __name__ == "__main__":
         name = r['twitter.username']
         print(name)
         try:
-            with open('html/%s.html' % name, encoding='utf-8') as m:
+            with open('html/{0!s}.html'.format(name), encoding='utf-8') as m:
                 html = m.read()
         except:
             html = ""
         if html.find(">> This user does not exist :)") == -1:
-            r['presspass.url'] = 'http://www.presspass.me/journalist/%s' % name
+            r['presspass.url'] = 'http://www.presspass.me/journalist/{0!s}'.format(name)
             soup = BeautifulSoup(html)
             top = soup.find('div', {'class': 'top'})
             if top:
@@ -46,7 +46,7 @@ if __name__ == "__main__":
                 for li in section.find_all('li'):
                     res = li.text.replace(li['class'][0].capitalize(), '').strip()
                     if res != "None":
-                        r['presspass.%s' % li['class'][0]] = res
+                        r['presspass.{0!s}'.format(li['class'][0])] = res
         writer.writerow(r)
 
     f.close()

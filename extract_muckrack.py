@@ -9,7 +9,7 @@ from urllib.parse import urlsplit
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: %s <input file>" % (__file__))
+        print("Usage: {0!s} <input file>".format((__file__)))
         sys.exit()
 
     f = open(sys.argv[1])
@@ -32,12 +32,12 @@ if __name__ == "__main__":
         name = r['twitter.username']
         print(name)
         try:
-            with open('muckrack/%s.html' % name, encoding='utf-8') as m:
+            with open('muckrack/{0!s}.html'.format(name), encoding='utf-8') as m:
                 html = m.read()
         except:
             html = ""
         if html != "":
-            r['muckrack.url'] = 'http://muckrack.com/%s' % name
+            r['muckrack.url'] = 'http://muckrack.com/{0!s}'.format(name)
         soup = BeautifulSoup(html)
         person = soup.find('div', {'class': 'person-header-inner'})
         if person:
@@ -64,11 +64,11 @@ if __name__ == "__main__":
             for l in socials.find_all('a'):
                 href = l['href']
                 url = urlsplit(href)
-                colname = 'muckrack.%s' % url.netloc.split('.')[-2]
+                colname = 'muckrack.{0!s}'.format(url.netloc.split('.')[-2])
                 if colname in header:
                     r[colname] = href
                 else:
-                    print("ERROR: %s" % url.netloc)
+                    print("ERROR: {0!s}".format(url.netloc))
         about = soup.find('div', {'class': 'summary-block-contents'})
         if about:
             r['muckrack.about'] = about.text.strip()
@@ -78,7 +78,7 @@ if __name__ == "__main__":
                 if a.text.startswith('@') and href.find('twitter') != -1:
                     i += 1
                     if i < 3:
-                        r['muckrack.linkedtwitteracct%d' % i] = href
+                        r['muckrack.linkedtwitteracct{0:d}'.format(i)] = href
                     else:
                         break
         topics = soup.find_all('div', {'class': 'summary-block topics'})
@@ -94,7 +94,7 @@ if __name__ == "__main__":
                 a = s.text.strip()
                 m = re.match(r'([\d,]+)\s+(.*)', a)
                 if m:
-                    r['muckrack.%s' % m.group(2)] = m.group(1)
+                    r['muckrack.{0!s}'.format(m.group(2))] = m.group(1)
         writer.writerow(r)
 
     f.close()

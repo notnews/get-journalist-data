@@ -11,7 +11,7 @@ BASE_URL = 'http://www.presspass.me/journalist'
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: %s <input file>" % (__file__))
+        print("Usage: {0!s} <input file>".format((__file__)))
         sys.exit()
 
     if not os.path.exists('./presspass'):
@@ -26,10 +26,10 @@ if __name__ == "__main__":
         count += 1
         name = r['twitter.username']
         print(count, "==>", name)
-        html = scraper.get(BASE_URL + '/%s' % name)
+        html = scraper.get(BASE_URL + '/{0!s}'.format(name))
         if html:
-            with open('presspass/%s.html' % name, "wb") as f:
+            with open('presspass/{0!s}.html'.format(name), "wb") as f:
                 f.write(str.encode(html))
             i += 1
-    print("Found: %d" % i)
+    print("Found: {0:d}".format(i))
     f.close()

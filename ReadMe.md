@@ -41,4 +41,4 @@ Both scripts take a csv with column carrying twitter usernames labeled 'twitter.
 
 #### License
 
-Scripts are released under the [MIT License](License.md).
+Scripts are released under the [MIT License](https://opensource.org/licenses/MIT).

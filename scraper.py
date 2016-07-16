@@ -3,9 +3,7 @@
 
 import http.cookiejar
 import os
-import urllib.request
 import urllib.parse
-import urllib.error
 import urllib.request
 import urllib.error
 
